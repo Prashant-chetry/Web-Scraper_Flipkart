@@ -1,7 +1,11 @@
 // eslint-disable-next-line no-undef
 const mongoose = require('mongoose');
 const url = 'mongodb://127.0.0.1:27017/webScraperFlipkart';
-mongoose.connect(url,{useNewUrlParser: true, useCreateIndex: true});
+mongoose.connect(url, {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useUnifiedTopology: true
+});
 // let Schema = ();
 const productSchema = new mongoose.Schema({
 	name: {
