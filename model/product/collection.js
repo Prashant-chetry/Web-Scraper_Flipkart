@@ -5,19 +5,13 @@ global.mongooseUrl = 'mongodb://127.0.0.1:27017/webScraperFlipkart';
 mongoose.connect(mongooseUrl, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
-	useUnifiedTopology: true
+	useUnifiedTopology: true,
 });
 const productSchema = new mongoose.Schema({
-	// productId: {
-	// 	type: mongoose.Types.ObjectId(),
-	// 	required: true,
-	// 	unique: true,
-	// 	default: mongoose.Types.ObjectId(Number)
-	// },
 	name: {
 		type: String,
 		required: true,
-		trim: true
+		trim: true,
 	},
 	image: {
 		type: Object,
@@ -34,8 +28,16 @@ const productSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
+	type: {
+		type: String,
+		required: true,
+	},
+	description: {
+		type: String,
+		trim: true,
+	},
 }, {
-	timestamps: true
+	timestamps: true,
 });
 
 let Product = mongoose.model('Product', productSchema);
@@ -43,3 +45,4 @@ let Product = mongoose.model('Product', productSchema);
 module.exports = {
 	Product,
 }
+;
